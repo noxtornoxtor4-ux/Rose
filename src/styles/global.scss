@@ -1,0 +1,119 @@
+@use 'tokens' as *;
+
+:root {
+  /* Кремово-бежевая база */
+  --sand-50: #fbf7f1;
+  --sand-100: #f4ece1;
+  --sand-200: #e9dccb;
+  --sand-300: #d9c6ae;
+
+  /* Золотые акценты */
+  --gold-400: #c9a96e;
+  --gold-500: #b08f55;
+  --gold-600: #8f713d;
+  --gold-700: #6f5730;
+
+  /* Приглушённая роза — для деликатных акцентов */
+  --blush-100: #f3e4df;
+  --blush-400: #c99a8f;
+  --danger: #a24a3c;
+
+  /* Угольная типографика */
+  --ink: #23201d;
+  --ink-soft: #57514b;
+  --muted: #8b8279;
+
+  --surface: #fffdf9;
+  --surface-soft: #faf5ee;
+  --glass: rgba(255, 253, 249, 0.78);
+  --glass-strong: rgba(251, 247, 241, 0.94);
+  --border: #ebe1d3;
+
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 30px 70px -40px rgba(63, 48, 30, 0.28), 0 2px 6px -2px rgba(63, 48, 30, 0.05);
+  --shadow-hover: 0 40px 80px -40px rgba(63, 48, 30, 0.36), 0 2px 8px -2px rgba(63, 48, 30, 0.06);
+  --shadow-soft: 0 14px 30px -18px rgba(35, 32, 29, 0.45);
+  --focus-ring: 0 0 0 4px rgba(201, 169, 110, 0.22);
+
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--sand-50);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.005em;
+}
+
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold-500);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

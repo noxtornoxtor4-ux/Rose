@@ -1,0 +1,186 @@
+@use '../../styles/tokens' as *;
+
+.hero {
+  position: relative;
+  padding: 72px 0 96px;
+
+  @include below($bp-md) {
+    padding: 44px 0 64px;
+  }
+
+  .inner {
+    @include container;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: center;
+    gap: 56px;
+
+    @include below($bp-lg) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  .content {
+    max-width: 620px;
+  }
+
+  .eyebrow {
+    margin-bottom: 18px;
+    color: var(--gold-600);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .title {
+    font-size: clamp(46px, 7.6vw, 90px);
+
+    em {
+      display: inline;
+      color: var(--gold-500);
+      font-style: italic;
+    }
+  }
+
+  .text {
+    max-width: 520px;
+    margin-top: 22px;
+    color: var(--ink-soft);
+    font-size: 17px;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 32px;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 32px;
+
+    li {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      color: var(--gold-700);
+      font-size: 13px;
+      font-weight: 700;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+    }
+  }
+
+  .card {
+    position: relative;
+    overflow: hidden;
+    padding: 34px;
+
+    @include card;
+
+    @include below($bp-sm) {
+      padding: 26px 20px;
+    }
+  }
+
+  .cardRose {
+    position: absolute;
+    top: -96px;
+    right: -84px;
+    width: 200px;
+    height: 200px;
+    color: var(--sand-200);
+    opacity: 0.8;
+    pointer-events: none;
+  }
+
+  .cardLabel {
+    position: relative;
+    margin-bottom: 10px;
+    color: var(--gold-600);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .cardTitle {
+    position: relative;
+    font-size: 32px;
+  }
+
+  .rows {
+    position: relative;
+    display: grid;
+    gap: 14px;
+    margin-top: 26px;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 16px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+  }
+
+  .rowIcon {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 36px;
+    height: 36px;
+    color: var(--gold-600);
+    background: var(--sand-100);
+    border-radius: 50%;
+  }
+
+  .rowText {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    strong {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    small {
+      color: var(--muted);
+      font-size: 13px;
+    }
+  }
+
+  .hours {
+    position: relative;
+    margin-top: 24px;
+    padding-top: 22px;
+    border-top: 1px dashed var(--border);
+  }
+
+  .hoursLabel {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .hoursValue {
+    margin-top: 6px;
+    font-family: var(--font-display);
+    font-size: 34px;
+    font-weight: 600;
+    color: var(--gold-700);
+  }
+}

@@ -1,0 +1,133 @@
+@use '../../styles/tokens' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 14px 0;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease, backdrop-filter 0.25s ease;
+
+  &.scrolled {
+    background: var(--glass-strong);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 18px 40px -32px rgba(63, 48, 30, 0.4);
+  }
+
+  .inner {
+    @include container;
+
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .mark {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-style: italic;
+    line-height: 1;
+    color: var(--gold-400);
+    background: var(--ink);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .brandText {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+
+    strong {
+      font-family: var(--font-display);
+      font-size: 20px;
+      letter-spacing: 0.01em;
+    }
+
+    small {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+  }
+
+  .nav {
+    display: flex;
+    gap: 26px;
+    margin-inline: auto;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink-soft);
+
+    a {
+      position: relative;
+      padding: 4px 0;
+      transition: color 0.2s ease;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        border-radius: 2px;
+        background: var(--gold-400);
+        transition: width 0.2s ease;
+      }
+
+      &:hover {
+        color: var(--gold-600);
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+
+    @include below($bp-md) {
+      margin-right: 0;
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-left: auto;
+
+    // На мобильных запись — в нижней панели, телефон — там же.
+    @include below($bp-md) {
+      display: none;
+    }
+  }
+
+  .phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 15px;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--gold-600);
+    }
+
+    @include below($bp-lg) {
+      display: none;
+    }
+  }
+}

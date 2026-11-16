@@ -1,0 +1,30 @@
+// Единые токены и миксины проекта.
+// Цвета живут в CSS-переменных (см. global.scss), здесь — брейкпоинты и помощники.
+
+$bp-sm: 560px;
+$bp-md: 820px;
+$bp-lg: 1100px;
+
+@mixin below($bp) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}
+
+@mixin container {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 20px;
+
+  @include below($bp-sm) {
+    padding-inline: 16px;
+  }
+}
+
+@mixin card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}

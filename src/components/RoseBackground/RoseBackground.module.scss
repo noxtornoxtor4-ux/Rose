@@ -1,0 +1,41 @@
+@use '../../styles/tokens' as *;
+
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 620px at 8% -8%, var(--sand-100), transparent 65%),
+    radial-gradient(720px 520px at 92% 10%, var(--blush-100), transparent 62%),
+    radial-gradient(900px 700px at 50% 110%, var(--sand-100), transparent 62%),
+    linear-gradient(180deg, var(--surface) 0%, var(--sand-50) 45%, var(--surface-soft) 100%);
+
+  .glow {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(420px 420px at 80% 60%, rgba(201, 169, 110, 0.1), transparent 70%),
+      radial-gradient(380px 380px at 16% 44%, rgba(201, 154, 143, 0.1), transparent 70%);
+  }
+
+  .grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.35;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.47 0 0 0 0 0.36 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .rose {
+    position: absolute;
+    height: auto;
+    color: var(--gold-400);
+    opacity: 0.28;
+
+    @include below($bp-md) {
+      opacity: 0.18;
+    }
+  }
+}
